@@ -1,0 +1,46 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+import HomePage from './pages/HomePage';
+import ImageInputPage from './pages/ImageInputPage';
+
+function App() {
+  const isAuthenticated = () => {
+    return localStorage.getItem('token') !== null;
+  };
+
+  const ProtectedRoute = ({ children }) => {
+    return isAuthenticated() ? children : <Navigate to="/login" replace />;
+  };
+
+  return (
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={
+            isAuthenticated() ? <Navigate to="/home" replace /> : <Navigate to="/login" replace />
+          } />
+          <Route path="/login" element={
+            isAuthenticated() ? <Navigate to="/home" replace /> : <LoginPage />
+          } />
+          <Route path="/signup" element={
+            isAuthenticated() ? <Navigate to="/home" replace /> : <SignupPage />
+          } />
+          <Route path="/home" element={
+            // <ProtectedRoute>
+              <HomePage />
+            // </ProtectedRoute>
+          } />
+          <Route path="/image-input" element={
+            // <ProtectedRoute>
+              <ImageInputPage />
+            // </ProtectedRoute>
+          } />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
