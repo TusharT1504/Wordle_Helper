@@ -1,70 +1,154 @@
-# Getting Started with Create React App
+******Wordle Helper******
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Wordle Helper is a web application designed to assist users in solving the Wordle game by suggesting potential words based on user input for the green, yellow, and black letters. This project is built using the MERN stack (MongoDB, Express, React, Node.js) with additional front-end enhancements using Tailwind CSS for styling, Toast for notifications, and React Icons for visual appeal.
 
-## Available Scripts
+**Table of Contents**
+```
+Project Overview
+Features
+Technologies Used
+Prerequisites
+Installation and Setup
+Frontend Setup
+Backend Setup
+Running the Application
+Usage
+```
 
-In the project directory, you can run:
+**Project Overview**
+The Wordle Helper project allows users to input the letters from their Wordle guesses:
 
-### `npm start`
+Green: Correct letters in the correct position.
+Yellow: Correct letters but in the wrong position.
+Black: Incorrect letters.
+Based on this input, the tool suggests a list of possible words that fit the given conditions, making it easier for users to solve the game.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Features**
+User Input: Enter letters for green, yellow, and black positions.
+Word Suggestions: Displays possible words that match the input conditions.
+Responsive Design: Built with Tailwind CSS for a fully responsive user interface.
+Notifications: Uses Toast for real-time notifications.
+Efficient Search: The app provides suggestions quickly by leveraging MongoDB to store and retrieve a word list.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Technologies Used**
+Frontend: React, Tailwind CSS, Toast, React Icons, HTML
+Backend: Express.js, Node.js
+Database: MongoDB
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Prerequisites**
+Before running the project locally, ensure you have the following installed on your system:
+  Node.js: Download Node.js
+  npm: Comes with Node.js, used for installing packages
+  MongoDB: Either local installation or access to MongoDB Atlas for database connection
+  Git: To clone the repository
+  React: Installed via npm
+  Tailwind CSS: Installed via npm
 
-### `npm run build`
+**Installation and Setup**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Frontend Setup**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  Clone the Repository:
+  ```
+  git clone https://github.com/yourusername/wordle-helper.git
+  cd wordle-helper/frontend
+  ```
+  
+  Install React: If React is not already installed, you can install it globally using npm:
+  ```
+  npx create-react-app .
+  ```
+  
+  Install Tailwind CSS: Install Tailwind CSS via npm:
+  ```
+  npm install -D tailwindcss
+  npx tailwindcss init
+  ```
+  
+  Add the following lines to tailwind.config.js to configure Tailwind:
+  ```
+  javascript
+  Copy code
+  module.exports = {
+    content: ["./src/**/*.{js,jsx,ts,tsx}"],
+    theme: {
+      extend: {},
+    },
+    plugins: [],
+  };
+  ```
+  
+  Install Toast Notifications: Add Toast for user notifications:
+  ```
+  npm install react-toastify
+  ```
+  
+  Install React Icons: For visual enhancements:
+  ```
+  npm install react-icons
+  ```
+  
+  Run Frontend: To start the frontend development server:
+  ```
+  npm start
+  ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Backend Setup**
+  Navigate to Backend: Open another terminal window and navigate to the backend directory:
+  ```
+  cd ../backend
+  ```
+  
+  Install Dependencies: Install necessary backend packages:
+  ```
+  npm install express mongoose cors
+  ```
+  
+  MongoDB Setup: If you’re using a local MongoDB instance, ensure it is running. Otherwise, create a cluster on MongoDB Atlas and get your connection string.
+  
+  Create Environment Variables: Inside the backend folder, create a .env file and add the following environment variables:
+  ```
+  MONGO_URI=mongodb://localhost:27017/wordle-helper
+  PORT=5000
+  ```
+  
+  Run Backend: Start the backend server:
+  ```
+  npm start
+  ```
 
-### `npm run eject`
+**Running the Application**
+Once both the frontend and backend are set up, follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  Frontend: Run the frontend server using:
+  ```
+  npm start
+  ```
+  This should start the React development server at http://localhost:3000.
+  
+  Backend: In a separate terminal, run the backend server:
+  ```
+  npm start
+  ```
+  This will start the Express server at http://localhost:5000.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Usage
+```
+Visit http://localhost:3000 in your browser.
+Enter the letters from your current Wordle game into the input fields.
+Green: Correct letters in the correct position.
+Yellow: Correct letters but wrong position.
+Black: Letters not in the word at all.
+Click on "Suggest Words" to get a list of possible words based on the input.
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Contributing
+If you’d like to contribute to this project, feel free to open an issue or submit a pull request.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Fork the repository.
+```
+Create a new feature branch: git checkout -b feature-name.
+Commit your changes: git commit -m 'Add some feature'.
+Push to the branch: git push origin feature-name.
+```
